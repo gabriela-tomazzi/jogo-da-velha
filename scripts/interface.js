@@ -6,14 +6,43 @@ document.addEventListener('DOMContentLoaded',() => {
 	})
 })
 
+
+let humanPhrase = document.getElementById('humanPhrase');
+let martianPhrase = document.getElementById('martianPhrase');
+let h1 = document.querySelector('#h1Title');
+
 function handleClick(event) {
-	console.log(event);			//event is click
+
+	switch (playerTime) {
+		case 1:		// playertime is switched because it changes when onclick
+			martianPhrase.style = "opacity: 0";
+			humanPhrase.style = "display: inline";
+			break;
+	
+		case 0:
+			humanPhrase.style = "opacity: 0"
+			martianPhrase.style = "display: inline";
+			break;
+	}
+	
+	//event is click
 	let square = event.target;
 	let position = square.id;
 
 	if (handleMove(position)) {
 		setTimeout(()=> {
-			alert(`O vencedor foi ${playerTime}`);
+
+			if(playerTime == 0) {
+				alert(`Humans won! the aliens will go back to their original home!`);
+				reset();
+				humanWins++
+				h1.innerText = `Humans[${humanWins}] x [${martianWins}]Martians`;
+			} else {
+				alert(`Aliens won! now the humans are kept in zoos!`);
+				reset();
+				martianWins++;
+				h1.innerText = `Humans[${humanWins}] x [${martianWins}]Martians`;
+			}
 		}, 10)
 	}
 	updateSquare(position);
@@ -26,16 +55,4 @@ function updateSquare(position) {
 }
 
 
-// var vez = 0;
-// let humanPhrase = document.getElementById('humanPhrase')
-// let martianPhrase = document.getElementById('martianPhrase');
 
-// if (vez == 0) {
-// 	martianPhrase.style = "opacity: 0";
-// 	humanPhrase.style = "display: inline";
-// 	vez = 1;
-// } else {
-// 	humanPhrase.style = "opacity: 0"
-// 	martianPhrase.style = "display: inline";
-// 	vez = 0;
-// }

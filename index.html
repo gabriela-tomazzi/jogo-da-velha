@@ -8,7 +8,10 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<h1>Humans x Martians</h1>
+	<h1 id="h1Title">Humans[0] x [0]Martians</h1>
+	<p id="humanPhrase">Humans counterattack! Quick, Defend your planet!</p>
+	<p id="martianPhrase">Alien time! Quick, expand your colony!</p>
+
 	<div class="stage">
 
 			<div>
@@ -31,10 +34,7 @@
 			
 	</div> <!-- stage -->
 
-	<button>Resetar</button>
-
-	<p id="humanPhrase">Quick, they're attacking!</p>
-	<p id="martianPhrase">Quick, expand your colony</p>
+	<button onclick="reset()">Reset game</button>
 
 	<script src="./scripts/game.js"></script> <!-- we will call game from interface.js, so it better be loaded -->
 	<script src="./scripts/interface.js"></script>

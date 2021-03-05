@@ -3,6 +3,9 @@ let playerTime = 0;
 let symbols = ['o', 'x'];
 var gameOver = false;
 
+let humanWins = 0;
+let martianWins = 0;
+
 var winStates = [
 	[0, 1, 2],
 	[3, 4, 5],
@@ -57,5 +60,18 @@ function isWin() {
 }
 
 function reset() {
-	
+	board = ['', '', '', '', '', '', '', '', ''];
+	playerTime = 0;
+	gameOver = false;
+
+	humanWins = 0;
+	martianWins = 0;
+	h1.innerText = `Humans[${humanWins}] x [${martianWins}]Martians`;
+
+	let squares = document.querySelectorAll('.square');
+	squares.forEach((square) => {
+		let symbol = board[square.id];
+
+		square.innerHTML = `<div class="${symbol}"></div>`;
+	})
 }
