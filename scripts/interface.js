@@ -11,19 +11,31 @@ function handleClick(event) {
 	let square = event.target;
 	let position = square.id;
 
-	handleMove(position);
-	updateSquares();
+	if (handleMove(position)) {
+		setTimeout(()=> {
+			alert(`O vencedor foi ${playerTime}`);
+		}, 10)
+	}
+	updateSquare(position);
 }
 
-function updateSquares(params) {
-	let squares = document.querySelectorAll('.square');
-
-	squares.forEach((square) => {
-		let position = square.id;
-		let symbol = board[position];
-
-		if (symbol != '') {
-			square.innerHTML = `<div class="${symbol}"></div>`
-		}
-	})
+function updateSquare(position) {
+	let square = document.getElementById(position.toString());
+	let symbol = board[position];
+	square.innerHTML = `<div class="${symbol}"></div>`;
 }
+
+
+// var vez = 0;
+// let humanPhrase = document.getElementById('humanPhrase')
+// let martianPhrase = document.getElementById('martianPhrase');
+
+// if (vez == 0) {
+// 	martianPhrase.style = "opacity: 0";
+// 	humanPhrase.style = "display: inline";
+// 	vez = 1;
+// } else {
+// 	humanPhrase.style = "opacity: 0"
+// 	martianPhrase.style = "display: inline";
+// 	vez = 0;
+// }
