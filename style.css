@@ -29,7 +29,7 @@ body {
 }
 
 .o {
-	position: relative;		/* disply flex? */
+	position: relative;
 }
 .o::after {
 	content: "\1F60E";
