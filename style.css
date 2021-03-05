@@ -18,5 +18,34 @@ body {
 	background-color: #252525;
 	
 	display: inline-block;
-	margin: -4px 0;
+	margin: 1px 5px;	/* inline block put a 4px margin */
+}
+
+.o {
+	position: relative;
+}
+.o::after {
+	content: "\2714";
+	font-size: 80px;
+
+	line-height: 150px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.x {
+	position: relative;
+}
+.x::after {
+	content: "\2716";
+	font-size: 80px;
+
+	line-height: 150px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 }
