@@ -14,15 +14,16 @@ body {
 .square {
 	width: 150px;
 	height: 150px;
-	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.432);
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.432);
 	background-color: #252525;
+	cursor: pointer;
 	
 	display: inline-block;
 	margin: 1px 5px;	/* inline block put a 4px margin */
 }
 
 .o {
-	position: relative;
+	position: relative;		/* disply flex? */
 }
 .o::after {
 	content: "\2714";
