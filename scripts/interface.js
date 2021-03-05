@@ -6,6 +6,12 @@ document.addEventListener('DOMContentLoaded',() => {
 	})
 })
 
+if (localStorage.length == 0) {
+	let humanWins = {wins: 0};
+	let martianWins = {wins: 0};
+	localStorage.setItem("humanWinsSto", JSON.stringify(humanWins));
+	localStorage.setItem("martianWinsSto", JSON.stringify(martianWins));
+}
 
 let humanPhrase = document.getElementById('humanPhrase');
 let martianPhrase = document.getElementById('martianPhrase');
@@ -32,15 +38,27 @@ function handleClick(event) {
 	if (handleMove(position)) {
 		setTimeout(()=> {
 
+			let humanWinsGet = localStorage.getItem("humanWinsSto");
+			let martianWinsGet = localStorage.getItem("martianWinsSto");
+			let humanWins = JSON.parse(humanWinsGet);
+			let martianWins = JSON.parse(martianWinsGet);
+
 			if(playerTime == 0) {
 				alert(`Humans won! the aliens will go back to their original home!`);
 				reset();
-				humanWins++
+
+				humanWins += 1; 
+				localStorage.setItem("humanWinsSto", JSON.stringify(humanWins));
+
 				h1.innerText = `Humans[${humanWins}] x [${martianWins}]Martians`;
+
 			} else {
 				alert(`Aliens won! now the humans are kept in zoos!`);
 				reset();
-				martianWins++;
+				
+				martianWins += 1;
+				localStorage.setItem("martianWinsSto", JSON.stringify(martianWins))
+
 				h1.innerText = `Humans[${humanWins}] x [${martianWins}]Martians`;
 			}
 		}, 10)

@@ -3,9 +3,6 @@ let playerTime = 0;
 let symbols = ['o', 'x'];
 var gameOver = false;
 
-let humanWins = 0;
-let martianWins = 0;
-
 var winStates = [
 	[0, 1, 2],
 	[3, 4, 5],
@@ -67,6 +64,7 @@ function reset() {
 	humanWins = 0;
 	martianWins = 0;
 	h1.innerText = `Humans[${humanWins}] x [${martianWins}]Martians`;
+	localStorage.clear();
 
 	let squares = document.querySelectorAll('.square');
 	squares.forEach((square) => {
